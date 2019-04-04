@@ -1,29 +1,37 @@
 package medical.controller;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 import java.time.LocalDate;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
 @Converter(autoApply = true)
-public class DateConverter implements AttributeConverter<LocalDate, Date> {
+public class DateConverter implements AttributeConverter<LocalDate, Date> 
+{
 	
 	@Override
-	public Date convertToDatabaseColumn(LocalDate locDate) {
-		if(locDate != null) {
+	public Date convertToDatabaseColumn(LocalDate locDate) 
+	{
+		if(locDate != null) 
+		{
 			return Date.valueOf(locDate);
-		}else {
+		}
+		else 
+		{
 			return null;
 		}
 	}
 	
 	@Override
-	public LocalDate convertToEntityAttribute(Date sqlTimestamp) {
-		if(sqlTimestamp != null) {
+	public LocalDate convertToEntityAttribute(Date sqlTimestamp) 
+	{
+		if(sqlTimestamp != null) 
+		{
 			return sqlTimestamp.toLocalDate();
-		}else {
+		}
+		else 
+		{
 			return null;
 		}
 	}
