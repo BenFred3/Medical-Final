@@ -3,6 +3,8 @@
 // Package and import statements.
 package medical.beans;
 import java.sql.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,13 +15,14 @@ public class patientProfile
 {
 	// Instance variables.
 	@Id
+	@Column(name = "patient_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int patientID;
+	private long patientID;
 	private String firstName;
 	private String lastName;
-	private Date birthday;
+	private Date birthdate;
 	private String email;
-	private int phoneNumber;
+	private String phone;
 	
 	// Default constructor.
 	public patientProfile()
@@ -34,22 +37,22 @@ public class patientProfile
 		this.lastName = lastName;
 	}
 	
-	public patientProfile(String firstName, String lastName, Date birthday, String email, int phoneNumber)
+	public patientProfile(String firstName, String lastName, Date birthdate, String email, String phone)
 	{
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.birthday = birthday;
+		this.birthdate = birthdate;
 		this.email = email;
-		this.phoneNumber = phoneNumber;
+		this.phone = phone;
 	}
 	
 	// Getters and setters.
-	public int getPatientID() 
+	public long getPatientID() 
 	{
 		return patientID;
 	}
-	public void setPatientID(int patientID) 
+	public void setPatientID(long patientID) 
 	{
 		this.patientID = patientID;
 	}
@@ -72,13 +75,13 @@ public class patientProfile
 		this.lastName = lastName;
 	}
 
-	public Date getBirthday() 
+	public Date getbirthdate() 
 	{
-		return birthday;
+		return birthdate;
 	}
-	public void setBirthday(Date birthday) 
+	public void setbirthdate(Date birthdate) 
 	{
-		this.birthday = birthday;
+		this.birthdate = birthdate;
 	}
 
 	public String getEmail() 
@@ -90,13 +93,13 @@ public class patientProfile
 		this.email = email;
 	}
 
-	public int getPhoneNumber() 
+	public String getphone() 
 	{
-		return phoneNumber;
+		return phone;
 	}
-	public void setPhoneNumber(int phoneNumber) 
+	public void setphone(String phone) 
 	{
-		this.phoneNumber = phoneNumber;
+		this.phone = phone;
 	}
 
 	// Helper methods.
@@ -104,6 +107,6 @@ public class patientProfile
 	public String toString() 
 	{
 		return "Patient Profile: Patient ID- " + patientID + " | First Name- " + firstName + " | Last Name- " + lastName
-				+ " | Birthday- " + birthday + " | Email- " + email + " | Phone Number- " + phoneNumber;
+				+ " | birthdate- " + birthdate + " | Email- " + email + " | Phone Number- " + phone;
 	}
 }
