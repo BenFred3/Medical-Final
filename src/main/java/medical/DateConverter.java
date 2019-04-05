@@ -1,4 +1,4 @@
-package medical.controller;
+package medical;
 
 import java.sql.Date;
 import java.time.LocalDate;
