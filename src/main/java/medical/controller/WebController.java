@@ -32,4 +32,12 @@ public class WebController
 		patientModel.addAttribute("patientProfiles", repo.findAll());
 		return "results";
 	}
+	
+	@GetMapping("/viewAllPatientProfiles")
+	public String viewAllPatientProfiles(Model model) {
+		model.addAttribute("patientProfiles", repo.findAll());
+		return "results";
+	}
+	
+
 }
