@@ -1,0 +1,17 @@
+<!--  -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Make Appointment</title>
+	</head>
+	<body>
+		<input type = "text" style = "display:none" name = "messageText" size = "60" id = "messageText" readonly>
+		<form name="apptForm" th:object="${newAppointment}" th:action="@{/addAppointment}" method ='POST'>
+			Patient ID: <input name="patientId" id="patientId" size="35" maxlength="50" required> <br />
+			Date/Time: <input type="date" name="dateTime" id="dateTime" size="35"required> <br />
+			Doctor: <input name="doctorId" id="doctorId" size="20" maxlength="10" required> <br />
+			<input name="submit" type="submit" value="submit" />
+		</form>
+	</body>
+</html>
