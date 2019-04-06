@@ -11,11 +11,13 @@
 				<td th:text="${currentPatient.patientID}" />
 				<td th:text="${currentPatient.firstName}" />
 				<td th:text="${currentPatient.lastName}" />
-				<!--<td th:text="${currentPatient.birthdate}" /> -->
+				<td th:text="${currentPatient.birthdate}" />
 				<td th:text="${currentPatient.email}" />
-				<!--<td th:text="${currentPatient.phone}"/> -->
-				<td><a th:href="@{/edit/{pateintID}(patientID=${currentPatient.patientID})}">Edit</a></td>
-				<td><a th:href="@{/delete/{patientID}(patientID=${currentPatient.patientID})}">Delete</a></td>
+				<td th:text="${currentPatient.phone}" />
+				<td><a th:href="@{/editPatientProfile/{patientID}(patientID=${currentPatient.patientID})}">Edit</a></td>
+				<td><a th:href="@{/deletePatientProfile/{patientID}(patientID=${currentPatient.patientID})}">Delete</a></td>
+				<td><a th:href="@{/addAppointment/{patientID}(patientID=${currentPatient.patientID})}">Add Appointment</a></td>
+				<td><a th:href="@{/viewAppointments/{patientID}(patientID=${currentPatient.patientID})}">View Appointments</a></td>				
 			</tr>
 		</table>
 	</form>
