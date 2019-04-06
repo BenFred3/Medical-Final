@@ -75,11 +75,11 @@ public class patientProfile
 		this.lastName = lastName;
 	}
 
-	public Date getbirthdate() 
+	public Date getBirthdate() 
 	{
 		return birthdate;
 	}
-	public void setbirthdate(Date birthdate) 
+	public void setBirthdate(Date birthdate) 
 	{
 		this.birthdate = birthdate;
 	}
@@ -93,11 +93,11 @@ public class patientProfile
 		this.email = email;
 	}
 
-	public String getphone() 
+	public String getPhone() 
 	{
 		return phone;
 	}
-	public void setphone(String phone) 
+	public void setPhone(String phone) 
 	{
 		this.phone = phone;
 	}
