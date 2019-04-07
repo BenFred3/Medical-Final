@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>View Patient Profile</title>
+	<meta charset="UTF-8">
+	<title>View Patient Profile</title>
+	<link rel="stylesheet" href="medicalFinal.css">
 </head>
 <body>
+	<p>Patient Profile</p>
 	<form>
 		<table>
 			<tr th:each="currentPatient : ${patientProfiles}">
