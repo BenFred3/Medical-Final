@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import medical.beans.Appointments;
 import medical.beans.patientProfile;
 import medical.repository.MedicalRepository;
+import medical.repository.AppointmentRepository;
 
 @Controller
 public class WebController 
@@ -30,6 +32,31 @@ public class WebController
 	{
 		repo.save(pP);
 		patientModel.addAttribute("patientProfiles", repo.findAll());
+		return "results";
+	}
+	
+	@GetMapping("/viewAllPatientProfiles")
+	public String viewAllPatientProfiles(Model model) {
+		model.addAttribute("patientProfiles", repo.findAll());
+		return "results";
+	}
+  
+	@Autowired
+	AppointmentRepository apptrepo;
+	
+	@GetMapping("/addAppointment")
+	public String addNewAppointment(Model appointmentModel)
+	{
+		Appointments appt = new Appointments();
+		appointmentModel.addAttribute("newAppointment", appt);
+		return "makeappt";
+	}
+	
+	@PostMapping("/addAppointment")
+	public String addNewAppointment(@ModelAttribute Appointments appt, Model appointmentModel)
+	{
+		apptrepo.save(appt);
+		appointmentModel.addAttribute("Appointments", apptrepo.findAll());
 		return "results";
 	}
 }
