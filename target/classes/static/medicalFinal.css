@@ -1,0 +1,82 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: lightgrey;
+}
+
+a {
+	background-color: grey;
+	box-shadow: 0 5px 0 darkgrey;
+	color: white;
+	padding: .25em .5em;
+	position: relative;
+	text-decoration: none;
+}
+
+a:hover {
+	background-color: grey;
+}
+
+a:active {
+	box-shadow: none;
+	top: 5px;
+}
+
+p {
+	color: blue;
+	font-size: 30px
+}
+
+/**********************************************/
+/* Table formatting                           */
+/**********************************************/
+table, th, td {
+	border: 1px solid black;
+}
+
+table {
+	border-collapse: collapse;
+	background-color: white; 
+}
+
+td {
+	height: 30px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+tr:hover {background-color: DodgerBlue;}
+
+/**********************************************/
+
+/* mouse over link */
+a:hover {
+  color: tomato;
+}
+
+/* add spacing between input lines to reduce cluttered appearance */
+form {
+	line-height: 2; 
+}
+
+/**********************************************/
+/* Button Styling                             */
+/**********************************************/
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: gray; 
+  border: 1px solid black;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 10%; 
+}
+
+input[type=submit]:hover {
+  color: tomato;
+}
