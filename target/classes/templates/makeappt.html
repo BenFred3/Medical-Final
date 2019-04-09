@@ -4,14 +4,13 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Make Appointment</title>
-		<link rel="stylesheet" href="medicalFinal.css"> 		
 	</head>
 	<body>
 		<input type = "text" style = "display:none" name = "messageText" size = "60" id = "messageText" readonly>
 		<form name="apptForm" th:object="${newAppointment}" th:action="@{/addAppointment}" method ='POST'>
-			Patient ID: <input name="patientId" id="patientId" size="35" maxlength="50" required> <br />
-			Date/Time: <input type="date" name="dateTime" id="dateTime" size="35"required> <br />
-			Doctor: <input name="doctorId" id="doctorId" size="20" maxlength="10" required> <br />
+			Patient ID: <input type="number" name="patientId" id="patientId" size="35" maxlength="50" required> <br />
+			Date/Time: <input type="date" name="dateTime" id="dateTime" size="35" required> <br />
+			Doctor: <input type="number" name="doctorId" id="doctorId" size="20" maxlength="10" required> <br />
 			<input name="submit" type="submit" value="submit" />
 		</form>
 	</body>
