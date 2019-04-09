@@ -59,7 +59,7 @@ public class WebController
 	public String addNewAppointment(@ModelAttribute Appointments appt, Model appointmentModel)
 	{
 		apptrepo.save(appt);
-		appointmentModel.addAttribute("appointments", apptrepo.findAll());
+		appointmentModel.addAttribute("Appointments", apptrepo.findAll());
 		return "results";
 	}
 	
