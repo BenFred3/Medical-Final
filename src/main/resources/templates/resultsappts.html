@@ -10,12 +10,12 @@
 	<form>
 		<table>
 			<tr th:each="currentAppointments : ${appointments}">
-				<td th:text="${currentAppointments.doctorId}" />
+				<td th:text="${currentAppointments.doctorProfile}" />
 				<td th:text="${currentAppointments.dateTime}" />
 				<td><a
-					th:href="@{/editAppointments/{patientID}(id=${currentAppointments.id})}">Edit</a></td>
+					th:href="@{/editAppointments/{patientProfile}(id=${currentAppointments.id})}">Edit</a></td>
 				<td><a
-					th:href="@{/deleteAppointments/{patientID}(id=${currentAppointments.id})}">Delete</a></td>
+					th:href="@{/deleteAppointments/{patientProfile}(id=${currentAppointments.id})}">Delete</a></td>
 
 			</tr>
 		</table>
