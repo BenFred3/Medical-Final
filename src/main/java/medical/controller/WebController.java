@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import medical.beans.Appointments;
 import medical.beans.patientProfile;
@@ -73,6 +74,15 @@ public class WebController
 	public String viewAllAppointments(@PathVariable("patientProfile") patientProfile id, Model apptModel) {
 		//Added a find appointment method in the AppointmentRepo file.
 		apptModel.addAttribute("appointments", apptrepo.findByPatientProfile(id));
+		return "resultsappts";
+	}
+	@GetMapping("/viewAppointments")
+	public String whatIsPatientID(){
+		return "whatIsPatientNumber";
+	}
+	@GetMapping("/viewPatientAppointments")
+	public String whatIsPatientID(@RequestParam("patientId") long patientId, Model apptModel) {
+		apptModel.addAttribute("appointments", apptrepo.findByPatientId(patientId));
 		return "resultsappts";
 	}
 	
