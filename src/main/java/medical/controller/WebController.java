@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import medical.beans.Appointments;
 import medical.beans.patientProfile;
+import medical.beans.doctorProfile;
 import medical.repository.MedicalRepository;
 import medical.repository.AppointmentRepository;
+import medical.repository.DoctorRepository;
 
 @Controller
 public class WebController 
@@ -48,11 +50,15 @@ public class WebController
 	@Autowired
 	AppointmentRepository apptrepo;
 	
+	@Autowired
+	DoctorRepository docrepo;
+	
 	@GetMapping("/addAppointment")
 	public String addNewAppointment(Model appointmentModel)
 	{
 		Appointments appt = new Appointments();
 		appointmentModel.addAttribute("newAppointment", appt);
+		appointmentModel.addAttribute("docDrop", docrepo.findAll());
 		return "makeappt";
 	}
 	
@@ -61,14 +67,13 @@ public class WebController
 	{
 		apptrepo.save(appt);
 		appointmentModel.addAttribute("Appointments", apptrepo.findAll());
-		return "results";
+		return "resultsappts";
 	}
 	
-	//Mappings for getting all appointments
-	@GetMapping("/viewAppointments/{patientId}")
-	public String viewAllAppointments(@PathVariable("patientId") long id, Model apptModel) {
+	@GetMapping("/viewAppointments/{patientProfile}")
+	public String viewAllAppointments(@PathVariable("patientProfile") patientProfile id, Model apptModel) {
 		//Added a find appointment method in the AppointmentRepo file.
-		apptModel.addAttribute("appointments", apptrepo.findByPatientId(id));
+		apptModel.addAttribute("appointments", apptrepo.findByPatientProfile(id));
 		return "resultsappts";
 	}
 	@GetMapping("/viewAppointments")
