@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View Appointments Profile</title>
+<link rel="stylesheet" href="medicalFinal.css">
+</head>
+<body>
+	<p>Patient Appointments</p>
+	<form>
+		<table>
+			<tr th:each="currentAppointments : ${appointments}">
+				<td th:text="${currentAppointments.doctorId}" />
+				<td th:text="${currentAppointments.dateTime}" />
+				<td><a
+					th:href="@{/editAppointments/{patientID}(id=${currentAppointments.id})}">Edit</a></td>
+				<td><a
+					th:href="@{/deleteAppointments/{patientID}(id=${currentAppointments.id})}">Delete</a></td>
+
+			</tr>
+		</table>
+	</form>
+	<br />
+	<br />
+	 <a
+		th:href="@{/addAppointment}">Add
+			Appointment</a><br/>
+	<a th:href="@{/}">Home</a>
+</body>
+</html>
