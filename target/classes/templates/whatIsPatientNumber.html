@@ -1,0 +1,15 @@
+<!--  -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>View My Appointments</title>
+		<link rel="stylesheet" href="medicalFinal.css">
+	</head>
+	<body>
+	<form name="viewAppointmentsForm" th:action="@{/viewPatientAppointments}" method ='GET'>
+			Patient ID: <input type="number" name="patientId" id="patientId" size="35" maxlength="50" required> <br />
+			<input name="submit" type="submit" value="submit" />
+		</form>
+	</body>
+</html>
