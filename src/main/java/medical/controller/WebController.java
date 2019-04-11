@@ -81,8 +81,8 @@ public class WebController
 		return "whatIsPatientNumber";
 	}
 	@GetMapping("/viewPatientAppointments")
-	public String whatIsPatientID(@RequestParam("patientId") long patientId, Model apptModel) {
-		apptModel.addAttribute("appointments", apptrepo.findByPatientId(patientId));
+	public String whatIsPatientID(@RequestParam("patientProfile") patientProfile patientId, Model apptModel) {
+		apptModel.addAttribute("appointments", apptrepo.findByPatientProfile(patientId));
 		return "resultsappts";
 	}
 	
