@@ -11,9 +11,9 @@
 		<form name="apptForm" th:object="${newAppointment}" th:action="@{/addAppointment}" method ='POST'>
 			Patient ID: <input type="number" name="patientProfile" id="patientProfile" size="35" maxlength="50" required> <br />
 			Date/Time: <input type="datetime-local" name="dateTimeInput" id="dateTimeInput" size="35" required> <br />
-			<select th:field="*{doctorProfile}">
+			Doctor: <select th:field="*{doctorProfile}">
 			   <option th:each="doc:${docDrop}" th:value="${doc.doctorID}" th:text="${doc.firstName +' '+ doc.lastName}">S</option>
-			</select> 
+			</select><br />
 			<input type="hidden" id="dateTime" name="dateTime" />
 			<input onclick="formatDateTime()" name="submit" type="submit" value="submit" />
 		</form>
