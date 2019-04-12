@@ -2,8 +2,6 @@
 
 // Package and import statements.
 package medical.beans;
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +19,7 @@ public class doctorProfile {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private int phone;
+	private String phone;
 	
 	// Default constructor.
 	public doctorProfile()
@@ -29,6 +27,7 @@ public class doctorProfile {
 		super();
 	}
 	
+	// Constructors.
 	public doctorProfile(String firstName, String lastName)
 	{
 		super();
@@ -36,7 +35,7 @@ public class doctorProfile {
 		this.lastName = lastName;
 	}
 	
-	public doctorProfile(String firstName, String lastName, String email, int phone)
+	public doctorProfile(String firstName, String lastName, String email, String phone)
 	{
 		super();
 		this.firstName = firstName;
@@ -44,7 +43,8 @@ public class doctorProfile {
 		this.email = email;
 		this.phone = phone;
 	}
-
+	
+	// Setters and Getters.
 	public long getDoctorID() {
 		return doctorID;
 	}
@@ -77,19 +77,19 @@ public class doctorProfile {
 		this.email = email;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	
 	// Helper methods.
-		@Override
-		public String toString() 
-		{
-			return "Doctor Profile: Doctor ID- " + doctorID + " | First Name- " + firstName + " | Last Name- " + lastName
-					+ " | Email- " + email + " | Phone Number- " + phone;
-		}
+	@Override
+	public String toString() 
+	{
+		return "Doctor Profile: Doctor ID- " + doctorID + " | First Name- " + firstName + " | Last Name- " + lastName
+				+ " | Email- " + email + " | Phone Number- " + phone;
+	}
 }

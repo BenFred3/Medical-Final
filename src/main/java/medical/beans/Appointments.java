@@ -4,39 +4,30 @@
 package medical.beans;
 import java.sql.Timestamp;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @Entity
-public class Appointments {
-
+public class Appointments 
+{
 	// Instance variables.
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private Timestamp dateTime;
 	private int appointmentKept;
-	//private long doctorId;
-	//private long patientId;
-	
 	@ManyToOne
 	@JoinColumn(name = "doctor_id")
 	private doctorProfile doctorProfile;
-	
-	
 	@ManyToOne
 	@JoinColumn(name = "patient_id")
 	private patientProfile patientProfile;
 	
-	
+	// Constructors.
 	
 	public Appointments() {
 		super();
@@ -47,7 +38,9 @@ public class Appointments {
 		this.dateTime = date;
 		this.appointmentKept = apptKept;
 	}
-
+	
+	// Setters and Getters.
+	
 	public long getId() {
 		return id;
 	}

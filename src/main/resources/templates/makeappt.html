@@ -4,25 +4,31 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Make Appointment</title>
-		<link rel="stylesheet" href="medicalFinal.css">
+		<link href="/medicalFinal.css" rel="stylesheet" />
 	</head>
 	<body>
+		<h1>Make an Appointment</h1>
+		<p>Set up a appointment using your patient ID, then fill out the rest of the information as needed.</p>
 		<input type = "text" style = "display:none" name = "messageText" size = "60" id = "messageText" readonly>
 		<form name="apptForm" th:object="${newAppointment}" th:action="@{/addAppointment}" method ='POST'>
 			Patient ID: <input type="number" name="patientProfile" id="patientProfile" size="35" maxlength="50" required> <br />
 			Date/Time: <input type="datetime-local" name="dateTimeInput" id="dateTimeInput" size="35" required> <br />
 			Doctor: <select th:field="*{doctorProfile}">
-			   <option th:each="doc:${docDrop}" th:value="${doc.doctorID}" th:text="${doc.firstName +' '+ doc.lastName}">S</option>
+			   <option th:each="doc:${docDrop}" th:value="${doc.doctorID}" th:text="${doc.firstName +' '+ doc.lastName}"></option>
 			</select><br />
 			<input type="hidden" id="dateTime" name="dateTime" />
 			<input onclick="formatDateTime()" name="submit" type="submit" value="submit" />
 		</form>
 		<script>
-			function formatDateTime() {
+			function formatDateTime() 
+			{
 				var x = document.getElementById("dateTimeInput").value;
 				var y = x.split('T')[0] + ' ' + x.split('T')[1] + ':00';
 				document.getElementById("dateTime").value = y;
 			}
 		</script>
+		<br />
+		<br/>
+		<a th:href="@{/}">Home</a>
 	</body>
 </html>
