@@ -2,43 +2,45 @@
 
 // Package and import statements.
 package medical.beans;
-import java.sql.Date;
+import java.sql.Timestamp;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @Entity
-public class Appointments {
-
+public class Appointments 
+{
 	// Instance variables.
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private Date dateTime;
+	private Timestamp dateTime;
 	private int appointmentKept;
-	private long doctorId;
-	private long patientId;
+	@ManyToOne
+	@JoinColumn(name = "doctor_id")
+	private doctorProfile doctorProfile;
+	@ManyToOne
+	@JoinColumn(name = "patient_id")
+	private patientProfile patientProfile;
 	
-	
+	// Constructors.
 	
 	public Appointments() {
 		super();
 	}
 	
-	public Appointments(Date date, int apptKept) {
+	public Appointments(Timestamp date, int apptKept) {
 		super();
 		this.dateTime = date;
 		this.appointmentKept = apptKept;
 	}
-
+	
+	// Setters and Getters.
+	
 	public long getId() {
 		return id;
 	}
@@ -47,11 +49,11 @@ public class Appointments {
 		this.id = id;
 	}
 
-	public Date getDateTime() {
+	public Timestamp getDateTime() {
 		return dateTime;
 	}
 
-	public void setDateTime(Date dateTime) {
+	public void setDateTime(Timestamp dateTime) {
 		this.dateTime = dateTime;
 	}
 
@@ -63,20 +65,20 @@ public class Appointments {
 		this.appointmentKept = appointmentKept;
 	}
 	
-	public long getDoctorId() {
-		return doctorId;
+	public doctorProfile getDoctorProfile() {
+		return doctorProfile;
 	}
 
-	public void setDoctorId(long doctorId) {
-		this.doctorId = doctorId;
+	public void setDoctorProfile(doctorProfile doctorProfile) {
+		this.doctorProfile = doctorProfile;
 	}
 
-	public long getPatientId() {
-		return patientId;
+	public patientProfile getPatientProfile() {
+		return patientProfile;
 	}
 
-	public void setPatientId(long patientId) {
-		this.patientId = patientId;
+	public void setPatientProfile(patientProfile patientProfile) {
+		this.patientProfile = patientProfile;
 	}
 
 	// Helper methods.
