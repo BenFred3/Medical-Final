@@ -22,9 +22,13 @@ a:active {
 	top: 5px;
 }
 
-p {
+h1 {
 	color: blue;
 	font-size: 30px
+}
+
+p {
+	color: blue;
 }
 
 /**********************************************/
@@ -54,7 +58,7 @@ tr:hover {background-color: DodgerBlue;}
 
 /* mouse over link */
 a:hover {
-  color: tomato;
+  color: lightblue;
 }
 
 /* add spacing between input lines to reduce cluttered appearance */
@@ -78,5 +82,5 @@ input[type=button], input[type=submit], input[type=reset] {
 }
 
 input[type=submit]:hover {
-  color: tomato;
+  color: lightblue;
 }
