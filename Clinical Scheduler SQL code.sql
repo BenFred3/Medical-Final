@@ -7,7 +7,7 @@ USE `clinical_scheduler` ;
 
 CREATE TABLE IF NOT EXISTS `clinical_scheduler`.`appointments` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
-  `date_time` DATE NULL,
+  `date_time` DATETIME NULL,
   `appointment_kept` TINYINT NULL,
   `patient_id` BIGINT(20) NOT NULL,
   `doctor_id` BIGINT(20) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `clinical_scheduler`.`doctor_profile` (
   `first_name` VARCHAR(10) NULL,
   `last_name` VARCHAR(20) NULL,
   `email` VARCHAR(35) NULL,
-  `phone` INT(10) NULL,
+  `phone` VARCHAR(13) NULL,
   PRIMARY KEY (`doctor_id`))
 ENGINE = InnoDB;
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `clinical_scheduler`.`patient_profile` (
   `last_name` VARCHAR(20) NULL,
   `birthdate` DATE NULL,
   `email` VARCHAR(35) NULL,
-  `phone` VARCHAR(10) NULL,
+  `phone` VARCHAR(13) NULL,
   PRIMARY KEY (`patient_id`))
 ENGINE = InnoDB;
 
