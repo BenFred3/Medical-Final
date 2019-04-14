@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import medical.beans.Appointments;
 import medical.beans.patientProfile;
 import medical.repository.MedicalRepository;
@@ -67,7 +68,16 @@ public class WebController
 		patientModel.addAttribute("patientProfiles", repo.findAll());
 		return "results";
 	}
-  
+
+	@GetMapping("/deletePatientProfile/{patientID}")
+	public String deleteUser(@PathVariable("patientID") long patientID, Model patientModel) {
+		patientProfile pP = repo.findById(patientID).orElseThrow(() -> new IllegalArgumentException("Invalid patient ID:" + patientID));
+		repo.delete(pP);
+		patientModel.addAttribute("patientProfiles", repo.findAll());
+		return "results";
+
+	}
+	
 	@Autowired
 	AppointmentRepository apptrepo;
 	
