@@ -6,6 +6,15 @@
 		<link href="/medicalFinal.css" rel="stylesheet" />
 	</head>
 	<body>
+		<ul>
+  			<li><a th:href="@{/}">Home</a></li>
+  			<li><a href="/addPatientProfile">Add a New Patient</a></li>
+  			<li><a href="/viewAllPatientProfiles" class="active">View All Patients</a></li>
+  			<li><a href="/addAppointment">Make anAppointment</a></li>
+  			<li><a href="/viewAppointments">View All Appointments</a></li>
+		</ul>
+		<br /><br />
+	
 		<h1>Patient Profile(s)</h1>
 		<form>
 			<table>
@@ -35,11 +44,5 @@
 				</tr>
 			</table>
 		</form>
-		<br/>
-		<br/>
-		<a th:href="@{/}">Home</a>
-		<br />
-		<br />
-		<a href="../addPatientProfile">Add a new Patient Profile</a>
 	</body>
 </html>

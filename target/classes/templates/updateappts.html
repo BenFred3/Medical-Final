@@ -6,6 +6,15 @@
 		<link href="/medicalFinal.css" rel="stylesheet" />
 	</head>
 	<body>
+		<ul>
+  			<li><a th:href="@{/}">Home</a></li>
+  			<li><a href="/addPatientProfile">Add a New Patient</a></li>
+  			<li><a href="/viewAllPatientProfiles">View All Patients</a></li>
+  			<li><a href="/addAppointment">Make an Appointment</a></li>
+  			<li><a href="/viewAppointments">View All Appointments</a></li>
+		</ul>
+		<br /><br />
+
 		<h1>Update Appointment Info.</h1>
 		<p>Please update any information as needed.</p>
 		<form action="#" th:action="@{/updateappts/{id}(id=${appointments.id})}" th:object="${appointments}" method="POST">
@@ -26,12 +35,5 @@
 				document.getElementById("dateTime").value = y;
 			}
 		</script>
-		
-		<br/>
-		<br/>
-		<a th:href="@{/}">Home</a>
-		<br/>
-		<br/>
-		<a href="/viewAllPatientProfiles">View All Patients</a>
 	</body>
 </html>

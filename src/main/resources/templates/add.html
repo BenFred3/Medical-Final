@@ -7,6 +7,15 @@
 		<link href="/medicalFinal.css" rel="stylesheet" />
 	</head>
 	<body>
+		<ul>
+  			<li><a th:href="@{/}">Home</a></li>
+  			<li><a href="/addPatientProfile" class="active">Add a New Patient</a></li>
+  			<li><a href="/viewAllPatientProfiles">View All Patients</a></li>
+  			<li><a href="/addAppointment">Make anAppointment</a></li>
+  			<li><a href="/viewAppointments">View All Appointments</a></li>
+		</ul>
+		<br /><br />
+		
 		<h1>Adding a New Patient</h1>
 		<p> Please enter in the patient's information here. </p>
 		<input type = "text" style = "display:none" name = "messageText" size = "60" id = "messageText" readonly>
@@ -18,8 +27,5 @@
 			Phone Number: <input type="number" name="phone" id="phone" size="20" minlength="10" maxlength="10" required> <br />
 			<input name="submit" type="submit" value="submit" />
 		</form>
-	<br />
-	<br />
-	<a th:href="@{/}">Home</a>
 	</body>
 </html>

@@ -7,6 +7,15 @@
 		<link href="/medicalFinal.css" rel="stylesheet" />
 	</head>
 	<body>
+		<ul>
+  			<li><a th:href="@{/}">Home</a></li>
+  			<li><a href="/addPatientProfile">Add a New Patient</a></li>
+  			<li><a href="/viewAllPatientProfiles">View All Patients</a></li>
+  			<li><a href="/addAppointment" class="active">Make an Appointment</a></li>
+  			<li><a href="/viewAppointments">View All Appointments</a></li>
+		</ul>
+		<br /><br />
+
 		<h1>Make an Appointment</h1>
 		<p>Set up a appointment using your patient ID, then fill out the rest of the information as needed.</p>
 		<input type = "text" style = "display:none" name = "messageText" size = "60" id = "messageText" readonly>
@@ -27,8 +36,5 @@
 				document.getElementById("dateTime").value = y;
 			}
 		</script>
-		<br />
-		<br/>
-		<a th:href="@{/}">Home</a>
 	</body>
 </html>
