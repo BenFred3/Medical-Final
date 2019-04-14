@@ -1,9 +1,8 @@
-<!--  -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<meta charset="ISO-8859-1">
-		<title>Make Appointment</title>
+		<meta charset="UTF-8">
+		<title>Update Menu</title>
 		<link href="/medicalFinal.css" rel="stylesheet" />
 	</head>
 	<body>
@@ -11,22 +10,22 @@
   			<li><a th:href="@{/}">Home</a></li>
   			<li><a href="/addPatientProfile">Add a New Patient</a></li>
   			<li><a href="/viewAllPatientProfiles">View All Patients</a></li>
-  			<li><a href="/addAppointment" class="active">Make an Appointment</a></li>
+  			<li><a href="/addAppointment">Make an Appointment</a></li>
   			<li><a href="/viewAppointments">View All Appointments</a></li>
 		</ul>
 		<br /><br />
 
-		<h1>Make an Appointment</h1>
-		<p>Set up a appointment using your patient ID, then fill out the rest of the information as needed.</p>
-		<input type = "text" style = "display:none" name = "messageText" size = "60" id = "messageText" readonly>
-		<form name="apptForm" th:object="${newAppointment}" th:action="@{/addAppointment}" method ='POST'>
-			Patient ID: <input type="number" name="patientProfile" id="patientProfile" size="35" maxlength="50" required> <br />
+		<h1>Update Appointment Info.</h1>
+		<p>Please update any information as needed.</p>
+		<form action="#" th:action="@{/updateappts/{id}(id=${appointments.id})}" th:object="${appointments}" method="POST">
+			
 			Date/Time: <input type="datetime-local" name="dateTimeInput" id="dateTimeInput" size="35" required> <br />
 			Doctor: <select th:field="*{doctorProfile}">
 			   <option th:each="doc:${docDrop}" th:value="${doc.doctorID}" th:text="${doc.firstName +' '+ doc.lastName}"></option>
 			</select><br />
 			<input type="hidden" id="dateTime" name="dateTime" />
-			<input onclick="formatDateTime()" name="submit" type="submit" value="submit" />
+			<input onclick="formatDateTime()" type="submit" value="Update Appointment">
+			<input readonly type="hidden" name="patientProfile" id="patientProfile" th:value="${appointments.patientProfile.patientID}" size="35" maxlength="50"> <br />
 		</form>
 		<script>
 			function formatDateTime() 

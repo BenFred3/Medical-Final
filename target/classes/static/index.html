@@ -1,24 +1,24 @@
 <!-- This is the index page where users will first end up while accessing our web site. -->
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Patient Index</title>
-<link rel="stylesheet" href="medicalFinal.css">
-</head>
-<body>
-	<p>Welcome to the Patient Database!</p>
-	<br>
-
-	<a href="addPatientProfile">Add a new Patient</a>
-	<br />
-	<br />
-	<a href="viewAllPatientProfiles">View All Patients</a>
-	<br />
-	<br />
-	<a href="addAppointment">Make Appointment</a>
-	<br />
-	<br />
-	<a href="viewAppointments">View All Appointments</a>
-</body>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Patient Index</title>
+		<link href="/medicalFinal.css" rel="stylesheet" />
+	</head>
+	<body>
+		<ul>
+  			<li><a th:href="@{/}" class="active">Home</a></li>
+  			<li><a href="/addPatientProfile">Add a New Patient</a></li>
+  			<li><a href="/viewAllPatientProfiles">View All Patients</a></li>
+  			<li><a href="/addAppointment">Make an Appointment</a></li>
+  			<li><a href="/viewAppointments">View All Appointments</a></li>
+		</ul>
+		<br /><br />
+	
+		<h1>Welcome to the Patient Database!</h1>
+		
+		<p> If you haven't already be sure to create a patient account to be able to access all our wonderful features! </p>
+		<p> As one of our patients we have made it so you can update your information and create an appointment all online. </p>
+	</body>
 </html>
