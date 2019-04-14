@@ -1,5 +1,30 @@
 @charset "ISO-8859-1";
 
+/**********************************************/
+/* Menu Bar                                   */
+/**********************************************/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  float: left; 
+  border-right: 1px solid #bbb;  
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: black;
+}
+
+/**********************************************/
+
 body {
 	background-color: lightgrey;
 }
@@ -78,7 +103,7 @@ input[type=button], input[type=submit], input[type=reset] {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  width: 10%; 
+  /*width: 10%;*/ 
 }
 
 input[type=submit]:hover {
