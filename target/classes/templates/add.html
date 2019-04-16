@@ -11,7 +11,7 @@
   			<li><a th:href="@{/}">Home</a></li>
   			<li><a href="/addPatientProfile" class="active">Add a New Patient</a></li>
   			<li><a href="/viewAllPatientProfiles">View All Patients</a></li>
-  			<li><a href="/addAppointment">Make an Appointment</a></li>
+  			<li><a href="/addAppointment">Make anAppointment</a></li>
   			<li><a href="/viewAppointments">View All Appointments</a></li>
 		</ul>
 		<br /><br />
@@ -20,11 +20,11 @@
 		<p> Please enter in the patient's information here. </p>
 		<input type = "text" style = "display:none" name = "messageText" size = "60" id = "messageText" readonly>
 		<form name="addForm" th:object="${newPatientProfile}" th:action="@{/addPatientProfile}" method ='POST'>
-			First Name: <input type="text" name="firstName" id="firstName" size="35" maxlength="50" required> <br />
-			Last Name: <input type="text" name="lastName" id="lastName" size="35" maxlength="50" required> <br />
-			Birthday: <input type="date" name="birthdate" size="20" min="1900-12-31" required> <br />
+			First Name: <input name="firstName" id="firstName" size="35" maxlength="50" required> <br />
+			Last Name: <input name="lastName" id="lastName" size="35" maxlength="50" required> <br />
+			Birthday: <input type="date" name="birthdate" size="20" min="1950-12-31" required> <br />
 			Email: <input type="email" name="email" id="email" maxlength="100" size="20" required> <br />
-			Phone Number: <input type="tel" name="phone" id="phone" size="20" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> Format: XXX-XXX-XXXX <br />
+			Phone Number: <input type="tel" name="phone" id="phone" size="20" required> <br />
 			<input name="submit" type="submit" value="submit" />
 		</form>
 	</body>
