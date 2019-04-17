@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import medical.beans.Appointments;
+import medical.beans.doctorProfile;
 import medical.beans.patientProfile;
 import medical.repository.MedicalRepository;
 import medical.repository.AppointmentRepository;
@@ -136,6 +137,19 @@ public class WebController {
 		apptrepo.delete(appt);
 		appointmentModel.addAttribute("appointments", apptrepo.findByPatientProfile(pid));
 		return "resultsappts";
-
 	}
+		//Doctor Stuff
+		@GetMapping("/addDoctorProfile")
+		public String addDoctor(Model doctorModel) {
+			doctorProfile dP = new doctorProfile();
+			doctorModel.addAttribute("newDoctorProfile", dP);
+			return "addDoctor";	
+		}
+		
+		@PostMapping("/addDoctorProfile")
+		public String addNewDoctorProfile(@ModelAttribute doctorProfile pP, Model doctorModel) {
+			docrepo.save(pP);
+			doctorModel.addAttribute("doctorProfiles", docrepo.findAll());
+			return "resultsdoc";
+		}
 }
