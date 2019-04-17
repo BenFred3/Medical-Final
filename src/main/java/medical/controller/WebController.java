@@ -128,4 +128,14 @@ public class WebController {
 		appointmentModel.addAttribute("Appointments", apptrepo.findAll());
 		return "resultsappts";
 	}
+	
+	@GetMapping("/deleteAppointment/{id}")
+	public String deleteAppointment(@PathVariable("id") long id, Model appointmentModel) {
+		Appointments appt = apptrepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid appointment ID:" + id));
+		patientProfile pid = appt.getPatientProfile();
+		apptrepo.delete(appt);
+		appointmentModel.addAttribute("appointments", apptrepo.findByPatientProfile(pid));
+		return "resultsappts";
+
+	}
 }

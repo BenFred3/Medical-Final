@@ -33,7 +33,7 @@
 					<td th:text="${currentAppointments.doctorProfile.phone}" />
 					<td th:text="${currentAppointments.dateTime}" />
 					<td><a th:href="@{/editAppointments/{id}(id=${currentAppointments.id})}">Edit</a></td>
-					<td><a th:href="@{/deleteAppointments/{patientProfile}(id=${currentAppointments.id})}">Delete</a></td>
+					<td><a th:href="@{/deleteAppointment/{id}(id=${currentAppointments.id})}">Delete</a></td>
 				</tr>
 			</table>
 		</form>
