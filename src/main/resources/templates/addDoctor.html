@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>Adding doctor to Database</title>
-<link href="/medicalFinal.CSS" rel="stylesheet" />
-</head>
-<body>
-	<ul>
-  			<li><a th:href="@{/}">Home</a></li>
-  			<li><a href="/addPatientProfile">Add a New Patient</a></li>
-  			<li><a href="/viewAllPatientProfiles">View All Patients</a></li>
-  			<li><a href="/addAppointment">Make anAppointment</a></li>
-  			<li><a href="/viewAppointments">View All Appointments</a></li>
-  			<li><a href="/addDoctorProfile" class="active">Add a New Doctor</a></li>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Adding a Doctor to Database</title>
+		<link href="/medicalFinal.CSS" rel="stylesheet" />
+	</head>
+	<body>
+		<ul>
+	  		<li><a th:href="@{/}">Home</a></li>
+	  		<li><a href="/addPatientProfile">Add a New Patient</a></li>
+	  		<li><a href="/viewAllPatientProfiles">View All Patients</a></li>
+	  		<li> &nbsp;&nbsp; </li>
+	  		<li><a href="/addAppointment">Make an Appointment</a></li>
+	  		<li><a href="/viewAppointments">View All Appointments</a></li>
+	  		<li> &nbsp;&nbsp; </li>
+	  		<li><a href="/addDoctorProfile" class="active">Add a New Doctor</a></li>
+	  		<li><a href="/viewAllDoctorProfiles">View All Doctors</a></li>
+	  		<li><a href="/viewAllDoctorAppointments">View All Doctors Appointments</a></li>
 		</ul>
 		<br /><br />
 		<h1>Adding a New Doctor</h1>
 		<p>Please enter in the Doctor's information here.</p>
 		<input type = "text" style = "display:none" name = "messageText" size = "60" id ="messageText" readonly>
+			
 		<form name="addForm" th:object="${newDoctorProfile}" th:action="@{/addDoctorProfile}" method = 'POST'>
-		First Name: <input name="firstName" id="firstName" size="35" maxlength="50" required> <br />
+			First Name: <input name="firstName" id="firstName" size="35" maxlength="50" required> <br />
 			Last Name: <input name="lastName" id="lastName" size="35" maxlength="50" required> <br />
 			Email: <input type="email" name="email" id="email" maxlength="100" size="20" required> <br />
 			Phone Number: <input type="tel" name="phone" id="phone" size="20" required> <br />
-			<input name="submit" type="submit" value="submit" /></form>
-</body>
+			<input name="submit" type="submit" value="submit" />
+		</form>
+	</body>
 </html>
