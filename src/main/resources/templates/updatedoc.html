@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Update Doctor</title>
+		<link href="/medicalFinal.css" rel="stylesheet" />
+	</head>
+	<body>
+		<ul>
+  			<li><a th:href="@{/}">Home</a></li>
+  			<li><a href="/addPatientProfile">Add a New Patient</a></li>
+  			<li><a href="/viewAllPatientProfiles">View All Patients</a></li>
+  			<li> &nbsp;&nbsp; </li>
+  			<li><a href="/addAppointment">Make an Appointment</a></li>
+  			<li><a href="/viewAppointments">View All Appointments</a></li>
+  			<li> &nbsp;&nbsp; </li>
+  			<li><a href="/addDoctorProfile">Add a New Doctor</a></li>
+  			<li><a href="/viewAllDoctorProfiles">View All Doctors</a></li>
+  			<li><a href="/viewAllDoctorAppointments">View All Doctors Appointments</a></li>
+		</ul>
+		<br /><br />
+
+		<h1>Update Doctor Info</h1>
+		<p>Please update any information as needed.</p>
+		<form action="#" th:action="@{/updatedoc/{doctorID}(doctorID=${doctorProfile.doctorID})}" th:object="${doctorProfile}" method="POST">
+			<label for="firstName">First Name: </label>
+			<input type="text" th:field="*{firstName}" id="firstName" placeholder="FirstName">
+			<span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+			<br />
+			<label for="lastName">Last Name: </label>
+			<input type="text" th:field="*{lastName}" id="lastName" placeholder="LastName">
+			<span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+			<br />
+			<label for="email">Email: </label>
+			<input type="email" th:field="*{email}" id="email" placeholder="Email">
+			<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+			<br />
+			<label for="phone">Phone Number: </label>
+			<input type="text" th:field="*{phone}" id="phone" placeholder="Phone">
+			<span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+			<br />
+			<input type="submit" value="Update Doctor Profile">
+		</form>
+	</body>
+</html>
