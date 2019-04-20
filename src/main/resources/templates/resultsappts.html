@@ -2,15 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>View Appointments Profile</title>
+		<title>View Appointments</title>
 		<link href="/medicalFinal.css" rel="stylesheet" />
 	<body>
 		<ul>
   			<li><a th:href="@{/}">Home</a></li>
   			<li><a href="/addPatientProfile">Add a New Patient</a></li>
   			<li><a href="/viewAllPatientProfiles">View All Patients</a></li>
+  			<li> &nbsp;&nbsp; </li>
   			<li><a href="/addAppointment">Make an Appointment</a></li>
   			<li><a href="/viewAppointments" class="active">View All Appointments</a></li>
+  			<li> &nbsp;&nbsp; </li>
+  			<li><a href="/addDoctorProfile">Add a New Doctor</a></li>
+  			<li><a href="/viewAllDoctorProfiles">View All Doctors</a></li>
+  			<li><a href="/viewAllDoctorAppointments">View All Doctors Appointments</a></li>
 		</ul>
 		<br /><br />
 
