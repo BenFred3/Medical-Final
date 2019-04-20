@@ -148,4 +148,27 @@ public class WebController {
 		model.addAttribute("doctorProfiles", docrepo.findAll());
 		return "resultsdoc";
 	}
+	
+	@GetMapping("/editDoctor/{doctorID}")
+	public String showDoctorUpdateForm(@PathVariable("doctorID") long doctorID, Model doctorModel) {
+		doctorProfile d = docrepo.findById(doctorID)
+				.orElseThrow(() -> new IllegalArgumentException("Invalid doctor ID:" + doctorID));
+		doctorModel.addAttribute("doctorProfile", d);
+		return "updatedoc";
+	}
+
+	@PostMapping("/updatedoc/{doctorID}")
+	public String updateDoctor(@PathVariable("doctorID") long doctorID, @Valid doctorProfile d,
+			BindingResult result, Model doctorModel) {
+		if (result.hasErrors()) {
+			d.setDoctorID(doctorID);
+			return "updatedoc";
+		}
+		docrepo.save(d);
+		doctorModel.addAttribute("doctorProfiles", docrepo.findAll());
+		return "resultsdoc";
+	}
+
+	
+	
 }
