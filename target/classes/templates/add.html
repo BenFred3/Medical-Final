@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Adding Patient to the Database</title>
+		<title>Adding a Patient to the Database</title>
 		<link href="/medicalFinal.css" rel="stylesheet" />
 	</head>
 	<body>
@@ -11,8 +11,13 @@
   			<li><a th:href="@{/}">Home</a></li>
   			<li><a href="/addPatientProfile" class="active">Add a New Patient</a></li>
   			<li><a href="/viewAllPatientProfiles">View All Patients</a></li>
-  			<li><a href="/addAppointment">Make anAppointment</a></li>
+  			<li> &nbsp;&nbsp; </li>
+  			<li><a href="/addAppointment">Make an Appointment</a></li>
   			<li><a href="/viewAppointments">View All Appointments</a></li>
+  			<li> &nbsp;&nbsp; </li>
+  			<li><a href="/addDoctorProfile">Add a New Doctor</a></li>
+  			<li><a href="/viewAllDoctorProfiles">View All Doctors</a></li>
+  			<li><a href="/viewAllDoctorAppointments">View All Doctors Appointments</a></li>
 		</ul>
 		<br /><br />
 		
@@ -24,7 +29,7 @@
 			Last Name: <input name="lastName" id="lastName" size="35" maxlength="50" required> <br />
 			Birthday: <input type="date" name="birthdate" size="20" min="1950-12-31" required> <br />
 			Email: <input type="email" name="email" id="email" maxlength="100" size="20" required> <br />
-			Phone Number: <input type="number" name="phone" id="phone" size="20" minlength="10" maxlength="10" required> <br />
+			Phone Number: <input type="tel" name="phone" id="phone" size="20" required> <br />
 			<input name="submit" type="submit" value="submit" />
 		</form>
 	</body>

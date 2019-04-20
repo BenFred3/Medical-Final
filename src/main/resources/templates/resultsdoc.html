@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>View Appointments</title>
+		<title>View Doctor Profiles</title>
 		<link href="/medicalFinal.css" rel="stylesheet" />
 	<body>
 		<ul>
@@ -11,15 +11,15 @@
   			<li><a href="/viewAllPatientProfiles">View All Patients</a></li>
   			<li> &nbsp;&nbsp; </li>
   			<li><a href="/addAppointment">Make an Appointment</a></li>
-  			<li><a href="/viewAppointments" class="active">View All Appointments</a></li>
+  			<li><a href="/viewAppointments">View All Appointments</a></li>
   			<li> &nbsp;&nbsp; </li>
   			<li><a href="/addDoctorProfile">Add a New Doctor</a></li>
-  			<li><a href="/viewAllDoctorProfiles">View All Doctors</a></li>
+  			<li><a href="/viewAllDoctorProfiles" class="active">View All Doctors</a></li>
   			<li><a href="/viewAllDoctorAppointments">View All Doctors Appointments</a></li>
 		</ul>
 		<br /><br />
 
-		<h1>Patient Appointments</h1>
+		<h1>Doctors</h1>
 		<form>
 			<table>
 				<tr>
@@ -27,18 +27,16 @@
 					<td> Doctor Last Name </td>
 					<td> Doctor Email </td>
 					<td> Doctor Phone Number </td>
-					<td> Appointment Date and Time </td>
 					<td> Edit Info.</td>
 					<td> Delete Info.</td>
 				</tr>
-				<tr th:each="currentAppointments : ${appointments}">
-					<td th:text="${currentAppointments.doctorProfile.firstName}" />
-					<td th:text="${currentAppointments.doctorProfile.lastName}" />
-					<td th:text="${currentAppointments.doctorProfile.email}" />
-					<td th:text="${currentAppointments.doctorProfile.phone}" />
-					<td th:text="${currentAppointments.dateTime}" />
-					<td><a th:href="@{/editAppointments/{id}(id=${currentAppointments.id})}">Edit</a></td>
-					<td><a th:href="@{/deleteAppointment/{id}(id=${currentAppointments.id})}">Delete</a></td>
+				<tr th:each="currentDoctors : ${doctorProfiles}">
+					<td th:text="${currentDoctors.firstName}" />
+					<td th:text="${currentDoctors.lastName}" />
+					<td th:text="${currentDoctors.email}" />
+					<td th:text="${currentDoctors.phone}" />
+				<td><a th:href="@{/editDoctor/{doctorID}(doctorID=${currentDoctors.doctorID})}">Edit</a></td>
+					<td><a th:href="@{/deleteDoctor/{doctorID}(doctorID=${currentDoctors.doctorID})}">Delete</a></td>
 				</tr>
 			</table>
 		</form>
