@@ -127,6 +127,15 @@ public class WebController {
 		appointmentModel.addAttribute("appointments", apptrepo.findByPatientProfile(pid));
 		return "resultsappts";
 	}
+	@GetMapping("/viewAllDoctorAppointments")
+	public String whatIsDoctorID() {
+		return "whatIsDoctorNumber";
+	}
+	@GetMapping("/viewDoctorAppointments")
+	public String whatIsDoctorID(@RequestParam("doctorProfile") doctorProfile doctorId, Model apptModel) {
+		apptModel.addAttribute("appointments", apptrepo.findByDoctorProfileOrderByDateTimeAsc(doctorId));
+		return "resultsdocappts";
+	}
 	
 	//Doctor Web Controller. - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 	@GetMapping("/addDoctorProfile")
@@ -177,7 +186,5 @@ public class WebController {
 		return "resultsdoc";
 
 	}
-
-	
 	
 }
