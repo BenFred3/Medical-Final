@@ -168,6 +168,15 @@ public class WebController {
 		doctorModel.addAttribute("doctorProfiles", docrepo.findAll());
 		return "resultsdoc";
 	}
+	
+	@GetMapping("/deleteDoctorProfile/{doctorID}")
+	public String deleteDoctor(@PathVariable("doctorID") long doctorID, Model doctorModel) {
+		doctorProfile dP = docrepo.findById(doctorID).orElseThrow(() -> new IllegalArgumentException("Invalid doctor ID:" + doctorID));
+		docrepo.delete(dP);
+		doctorModel.addAttribute("doctorProfiles", docrepo.findAll());
+		return "resultsdoc";
+
+	}
 
 	
 	

@@ -32,15 +32,15 @@
 			<span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
 			<br />
 			<label for="birthdate">Birthday: </label>
-			<input type="text" th:field="*{birthdate}" id="birthdate" placeholder="birthdate">
+			<input type="date" th:field="*{birthdate}" id="birthdate" placeholder="birthdate">
 			<span th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}"></span>
 			<br />
 			<label for="email">Email: </label>
-			<input type="text" th:field="*{email}" id="email" placeholder="Email">
+			<input type="email" th:field="*{email}" id="email" placeholder="Email">
 			<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
 			<br />
 			<label for="phone">Phone Number: </label>
-			<input type="text" th:field="*{phone}" id="phone" placeholder="Phone">
+			<input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" th:field="*{phone}" id="phone" placeholder="Phone">
 			<span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
 			<br />
 			<input type="submit" value="Update PersonProfile">
