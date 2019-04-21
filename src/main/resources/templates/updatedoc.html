@@ -36,7 +36,7 @@
 			<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
 			<br />
 			<label for="phone">Phone Number: </label>
-			<input type="text" th:field="*{phone}" id="phone" placeholder="Phone">
+			<input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" th:field="*{phone}" id="phone" placeholder="Phone">
 			<span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
 			<br />
 			<input type="submit" value="Update Doctor Profile">

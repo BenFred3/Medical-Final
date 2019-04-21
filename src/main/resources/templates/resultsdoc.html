@@ -36,7 +36,7 @@
 					<td th:text="${currentDoctors.email}" />
 					<td th:text="${currentDoctors.phone}" />
 				<td><a th:href="@{/editDoctor/{doctorID}(doctorID=${currentDoctors.doctorID})}">Edit</a></td>
-					<td><a th:href="@{/deleteDoctor/{doctorID}(doctorID=${currentDoctors.doctorID})}">Delete</a></td>
+					<td><a th:href="@{/deleteDoctorProfile/{doctorID}(doctorID=${currentDoctors.doctorID})}">Delete</a></td>
 				</tr>
 			</table>
 		</form>

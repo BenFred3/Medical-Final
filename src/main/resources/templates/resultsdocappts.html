@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>View Doctor Appointments</title>
+		<link href="/medicalFinal.css" rel="stylesheet" />
+	<body>
+		<ul>
+  			<li><a th:href="@{/}">Home</a></li>
+  			<li><a href="/addPatientProfile">Add a New Patient</a></li>
+  			<li><a href="/viewAllPatientProfiles">View All Patients</a></li>
+  			<li> &nbsp;&nbsp; </li>
+  			<li><a href="/addAppointment">Make an Appointment</a></li>
+  			<li><a href="/viewAppointments">View All Appointments</a></li>
+  			<li> &nbsp;&nbsp; </li>
+  			<li><a href="/addDoctorProfile">Add a New Doctor</a></li>
+  			<li><a href="/viewAllDoctorProfiles">View All Doctors</a></li>
+  			<li><a href="/viewAllDoctorAppointments" class="active">View All Doctors Appointments</a></li>
+		</ul>
+		<br /><br />
+
+		<h1>Appointments</h1>
+		<form>
+			<table>
+				<tr>
+					<td> Patient First Name</td>
+					<td> Patient Last Name </td>
+					<td> Patient DOB </td>
+					<td> Patient Email </td>
+					<td> Patient Phone Number </td>
+					<td> Appointment Date and Time </td>
+					<!-- <td> Edit Info.</td>
+					<td> Delete Info.</td> -->
+				</tr>
+				<tr th:each="currentAppointments : ${appointments}">
+					<td th:text="${currentAppointments.patientProfile.firstName}" />
+					<td th:text="${currentAppointments.patientProfile.lastName}" />
+					<td th:text="${currentAppointments.patientProfile.birthdate}" />
+					<td th:text="${currentAppointments.patientProfile.email}" />
+					<td th:text="${currentAppointments.patientProfile.phone}" />
+					<td th:text="${currentAppointments.dateTime}" />
+					<!-- <td><a th:href="@{/editAppointments/{id}(id=${currentAppointments.id})}">Edit</a></td>
+					<td><a th:href="@{/deleteAppointment/{id}(id=${currentAppointments.id})}">Delete</a></td> -->
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
