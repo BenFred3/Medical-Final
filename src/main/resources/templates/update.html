@@ -24,26 +24,26 @@
 		<p>Please update any information as needed.</p>
 		<form action="#" th:action="@{/update/{patientID}(patientID=${patientProfile.patientID})}" th:object="${patientProfile}" method="post">
 			<label for="firstName">First Name: </label>
-			<input type="text" th:field="*{firstName}" id="firstName" placeholder="FirstName">
+			<input type="text" th:field="*{firstName}" id="firstName" placeholder="FirstName" maxlength="50" required>
 			<span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
 			<br />
 			<label for="lastName">Last Name: </label>
-			<input type="text" th:field="*{lastName}" id="lastName" placeholder="LastName">
+			<input type="text" th:field="*{lastName}" id="lastName" placeholder="LastName" maxlength="50" required>
 			<span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
 			<br />
 			<label for="birthdate">Birthday: </label>
-			<input type="date" th:field="*{birthdate}" id="birthdate" placeholder="birthdate">
+			<input type="date" th:field="*{birthdate}" id="birthdate" min="1950-12-31" placeholder="birthdate" required>
 			<span th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}"></span>
 			<br />
 			<label for="email">Email: </label>
-			<input type="email" th:field="*{email}" id="email" placeholder="Email">
+			<input type="email" th:field="*{email}" id="email" placeholder="Email" maxlength="100" required>
 			<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
 			<br />
 			<label for="phone">Phone Number: </label>
-			<input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" th:field="*{phone}" id="phone" placeholder="Phone">
+			<input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" th:field="*{phone}" id="phone" placeholder="Phone" required> Format: XXX-XXX-XXXX
 			<span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
 			<br />
-			<input type="submit" value="Update PersonProfile">
+			<input type="submit" value="Update Profile">
 		</form>
 	</body>
 </html>

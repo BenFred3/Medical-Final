@@ -31,7 +31,7 @@
 			<option th:each="doc:${docDrop}" th:value="${doc.doctorID}" th:text="${doc.firstName +' '+ doc.lastName}"></option>
 			</select><br />
 			<input type="hidden" id="dateTime" name="dateTime" />
-			<input onclick="formatDateTime()" name="submit" type="submit" value="submit" />
+			<input onclick="formatDateTime()" name="submit" type="submit" value="Submit" />
 		</form>
 		<script>
 			function formatDateTime() 
